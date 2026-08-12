@@ -1,0 +1,63 @@
+# ------------------------------------------------------------------- build
+build/
+out/
+install/
+_deps/
+compile_commands.json
+.cache/
+
+# CLion and other CMake-aware IDEs put their trees here
+cmake-build-*/
+CMakeUserPresets.json
+
+# ---------------------------------------------------------------- artefacts
+# Everything the pipeline emits goes to work/. Listing the individual kinds as
+# well means a stray run with an explicit -o outside work/ still cannot be
+# committed by accident. For the record, a full run of demo.sh + solve.sh
+# produces, all in work/:
+#
+#   netlist.v  puzzle.v            extracted structural Verilog
+#   models.v   models_all.v        behavioural cell models for external tools
+#   netlist.json  puzzle.json      the netlist IR
+#   netlist_named.v                the extraction rewritten with reference names
+#   puzzle_rtl.v  gate_wrap.v      recovered RTL and its comparison wrapper
+#   nets.svg  layers.svg           renders of the warm-up layout
+#   puzzle_nets.svg  puzzle_input.svg   renders of the target layout
+#   trace.vcd                      simulator waveform
+#   sweep.vvp  equiv.vvp           compiled iverilog testbenches
+work/
+*.vcd
+*.vvp
+*.svg
+*.json
+!CMakePresets.json
+
+# ...but external/ is vendored input data, not output
+!external/**
+
+# --------------------------------------------------------------- LaTeX noise
+*.aux
+*.log
+*.out
+*.toc
+*.lol
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+
+# ------------------------------------------------------------------- Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# --------------------------------------------------------------- editors, OS
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store
+
+# ----------------------------------------------------------- local write-ups
+# Report drafts and their build products; not part of the tool.
+docs/embargoed/
