@@ -601,6 +601,12 @@ from pinned release archives, each verified by SHA-256. A cold configure takes
 about 12 seconds. Once `build/default/_deps` is populated, `-D
 FETCHCONTENT_FULLY_DISCONNECTED=ON` builds offline.
 
+---
+
+## Author
+
+Vladislav Shapovalov · figurezig@protonmail.ch · [LinkedIn](https://www.linkedin.com/in/figurezig/)
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
